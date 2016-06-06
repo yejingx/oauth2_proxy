@@ -31,14 +31,16 @@ func getTemplates() *template.Template {
 		font-size: 14px;
 		line-height: 1.42857143;
 		color: #333;
-		background: #f0f0f0;
+		background-color: #35373c;
+		background-image: url(http://yejingx.b0.upaiyun.com/bg.jpg);
+		background-repeat: no-repeat;
+		background-position: 50% 0;
 	}
 	.signin {
 		display:block;
-		margin:20px auto;
+		margin: 260px auto 50px auto;
 		max-width:400px;
-		background: #fff;
-		border:1px solid #ccc;
+		background: #35373c;
 		border-radius: 10px;
 		padding: 20px;
 	}
@@ -47,20 +49,19 @@ func getTemplates() *template.Template {
 	}
 	.btn {
 		color: #fff;
-		background-color: #428bca;
-		border: 1px solid #357ebd;
+		background-color: #149371;
+		border: none;
 		-webkit-border-radius: 4;
 		-moz-border-radius: 4;
 		border-radius: 4px;
-		font-size: 14px;
+		font-size: 18px;
 		padding: 6px 12px;
 	  	text-decoration: none;
 		cursor: pointer;
 	}
 
 	.btn:hover {
-		background-color: #3071a9;
-		border-color: #285e8e;
+		opacity: 0.8;
 		ext-decoration: none;
 	}
 	label {
@@ -77,9 +78,9 @@ func getTemplates() *template.Template {
 		font-size: 14px;
 		line-height: 1.42857143;
 		color: #555;
-		background-color: #fff;
+		background-color: #149371;
 		background-image: none;
-		border: 1px solid #ccc;
+		border: none;
 		border-radius: 4px;
 		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 		box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
@@ -112,10 +113,7 @@ func getTemplates() *template.Template {
 	<div class="signin center">
 	<form method="GET" action="{{.ProxyPrefix}}/start">
 	<input type="hidden" name="rd" value="{{.Redirect}}">
-	{{ if .SignInMessage }}
-	<p>{{.SignInMessage}}</p>
-	{{ end}}
-	<button type="submit" class="btn">Sign in with a {{.ProviderName}} Account</button><br/>
+	<button type="submit" class="btn">使用 UPYUN 邮箱登录</button><br/>
 	</form>
 	</div>
 
@@ -129,9 +127,6 @@ func getTemplates() *template.Template {
 	</form>
 	</div>
 	{{ end }}
-	<footer>
-	Secured with <a href="https://github.com/bitly/oauth2_proxy#oauth2_proxy">OAuth2 Proxy</a> version {{.Version}}
-	</footer>
 </body>
 </html>
 {{end}}`)
