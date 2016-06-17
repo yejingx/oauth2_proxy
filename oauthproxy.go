@@ -587,7 +587,7 @@ func (p *OAuthProxy) Authenticate(rw http.ResponseWriter, req *http.Request) int
 
 	// At this point, the user is authenticated. proxy normally
 	if p.PassBasicAuth {
-		req.SetBasicAuth(session.User, p.BasicAuthPassword)
+		req.Header["Authorization"] = []string{req.Header.Get("Authorization")}
 		req.Header["X-Forwarded-User"] = []string{session.User}
 		if session.Email != "" {
 			req.Header["X-Forwarded-Email"] = []string{session.Email}
